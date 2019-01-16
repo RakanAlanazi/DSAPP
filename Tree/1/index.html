@@ -372,19 +372,20 @@
 </blockquote>
 <p><img src="https://raw.githubusercontent.com/RakanAlanazi/Test/master/docs/img/1.1.png" width="300"></p>
 <blockquote>
-<p>M(r, a) = 5, M(r, b) = 9, M(r, c) = 5, M(r, d) = 5, M(r, e) = 11, M(r, f) = -3, M(r, g) = -3, M(r, h) = 9, M(r, i) = 8, M(r, j) = 10, M(r, k) = 8, M(r, l) = 7.</p>
+<p>M(r, a) = 5, M(r, b) = 9, M(r, c) = 5, M(r, d) = 5, M(r, e) = 11, M(r, f) = -3, M(r, g) = -3, M(r, h) = 9,
+M(r, i) = 8, M(r, j) = 10, M(r, k) = 8, M(r, l) = 7.</p>
 <p>Please design an O(n) algorithm to compute M(r, v) for each and every node v (≠ r) in V. We assume, for each node u, its father π(u) is known (π(r) = r), and its children are organized by a linked list. You can simply call “u’s next son” to get its next son or first son.  “u’s next son = nil” means you have looked all its sons or it is a leaf.</p>
 </blockquote>
-<pre><code class="cpp">v = r.next
-M(r,r) ← - ∞ 
-w(r,r) = - ∞
-π(r) = r
+<pre><code class="cpp">v \gets r.next
+M(r,r) \gets - \infty 
+w(r,r) \gets - \infty
+π(r) \gets r
 
 Tree-Traversal(T,r,v)
 1:  if v = nil :
 2:      return nil
-3:  else
-4:      M(r,v) ← MAX ( w(π(v),v) ,M(r,π(v)))
+3:  else :
+4:      M(r,v) \gets MAX ( w(π(v),v) ,M(r,π(v)))
 5:                For each v’s next son:
 6:                  Tree-Traversal( T, r, v.next )
 End
