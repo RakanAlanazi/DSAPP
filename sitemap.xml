@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-     <loc>https://rakanalanazi.github.io/CLRS/</loc>
+     <loc>https://rakanalanazi.github.io/Algorthim/</loc>
      <lastmod>2019-01-16</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://rakanalanazi.github.io/CLRS/color/</loc>
+     <loc>https://rakanalanazi.github.io/Algorthim/color/</loc>
      <lastmod>2019-01-16</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://rakanalanazi.github.io/CLRS/Graph/test12/</loc>
-     <lastmod>2019-01-16</lastmod>
+     <loc></loc>
+     
      <changefreq>daily</changefreq>
     </url>
 </urlset>
