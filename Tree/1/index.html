@@ -404,7 +404,7 @@
                 
                   <h1>P1</h1>
                 
-                <h2 id="11">1.1</h2>
+                <h2 id="11">1.1<a class="headerlink" href="#11" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Let $T(V, E)$ be a weighted tree rooted at node $r ∈ V$. We define M(r, v) to be the weight of the largest weighted edge on the path from $r$ to $v$. The following figure shows an example.</p>
 </blockquote>
@@ -414,19 +414,19 @@
 M(r, i) = 8, M(r, j) = 10, M(r, k) = 8, M(r, l) = 7$.</p>
 <p>Please design an O(n) algorithm to compute M(r, v) for each and every node v (≠ r) in V. We assume, for each node u, its father π(u) is known (π(r) = r), and its children are organized by a linked list. You can simply call “u’s next son” to get its next son or first son.  “u’s next son = nil” means you have looked all its sons or it is a leaf.</p>
 </blockquote>
-<pre><code class="python">v = r.next
-M(r,r) = - ∞ 
-w(r,r) = - ∞
-π(r) = r
-Tree-Traversal(T,r,v)
-1:    if v = nil :
-2:        return nil
-3:    else :
-4:        M(r,v) ← MAX ( w(π(v),v) ,M(r,π(v)))
-5:        For each v’s next son:
-6:            Tree-Traversal( T, r, v.next )
-End
-</code></pre>
+<div class="codehilite"><pre><span></span><span class="n">v</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">next</span>
+<span class="n">M</span><span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="n">r</span><span class="p">)</span> <span class="o">=</span> <span class="o">-</span> <span class="err">∞</span> 
+<span class="n">w</span><span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="n">r</span><span class="p">)</span> <span class="o">=</span> <span class="o">-</span> <span class="err">∞</span>
+<span class="err">π</span><span class="p">(</span><span class="n">r</span><span class="p">)</span> <span class="o">=</span> <span class="n">r</span>
+<span class="n">Tree</span><span class="o">-</span><span class="n">Traversal</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="n">r</span><span class="p">,</span><span class="n">v</span><span class="p">)</span>
+<span class="mi">1</span><span class="p">:</span>    <span class="k">if</span> <span class="n">v</span> <span class="o">=</span> <span class="n">nil</span> <span class="p">:</span>
+<span class="mi">2</span><span class="p">:</span>        <span class="k">return</span> <span class="n">nil</span>
+<span class="mi">3</span><span class="p">:</span>    <span class="k">else</span> <span class="p">:</span>
+<span class="mi">4</span><span class="p">:</span>        <span class="n">M</span><span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="n">v</span><span class="p">)</span> <span class="err">←</span> <span class="n">MAX</span> <span class="p">(</span> <span class="n">w</span><span class="p">(</span><span class="err">π</span><span class="p">(</span><span class="n">v</span><span class="p">),</span><span class="n">v</span><span class="p">)</span> <span class="p">,</span><span class="n">M</span><span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="err">π</span><span class="p">(</span><span class="n">v</span><span class="p">)))</span>
+<span class="mi">5</span><span class="p">:</span>        <span class="n">For</span> <span class="n">each</span> <span class="n">v</span><span class="err">’</span><span class="n">s</span> <span class="nb">next</span> <span class="n">son</span><span class="p">:</span>
+<span class="mi">6</span><span class="p">:</span>            <span class="n">Tree</span><span class="o">-</span><span class="n">Traversal</span><span class="p">(</span> <span class="n">T</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">v</span><span class="o">.</span><span class="n">next</span> <span class="p">)</span>
+<span class="n">End</span>
+</pre></div>
                 
                   
                 

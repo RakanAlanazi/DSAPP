@@ -344,44 +344,43 @@
                 
                   <h1>P2</h1>
                 
-                <pre><code class="markdown">!!! question
+                <div class="codehilite"><pre><span></span>!!! question
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod
     nulla. Curabitur feugiat, tortor non consequat finibus, justo purus auctor
     massa, nec semper lorem quam in massa.
-</code></pre>
+</pre></div>
 
-<p>!!! failure "Error: unrecognized theme 'material'"</p>
-<pre><code>If you run into this error, the most common reason is that you installed
-MkDocs through some package manager (e.g. Homebrew or `apt-get`) and the
-Material theme through `pip`, so both packages end up in different
-locations. MkDocs only checks its install location for themes.
-</code></pre>
-<p>fffff</p>
-<blockquote>
-<p>!!! question
-   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod
-   nulla. Curabitur feugiat, tortor non consequat finibus, justo purus auctor
-   massa, nec semper lorem quam in massa.</p>
-</blockquote>
-<p><img src="https://raw.githubusercontent.com/RakanAlanazi/Test/master/docs/img/1.2.png" width="300"></p>
-<p>!!! warning
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod
-    nulla. Curabitur feugiat, tortor non consequat finibus, justo purus auctor
-    massa, nec semper lorem quam in massa.</p>
-<pre><code class="python">Get-Successor(T, root, x)
-1:  IF (left(x) != nil)         # case 1: node has left child
-2:            Return left(x)
-3:            
-4:  ELSE         # case 2: No left or right child. Then we travel up.
-5:            WHILE (father(x) != nil &amp; right(father(x)) == x) 
-6:                    x ← father(x)
-7:                  father(x) ← father(parent(x))
-8:  IF (father(x) = nil)        # we reach the root. No result found
-9:              Return nil
-10: 
-11: Return right(father(x)) 
-End
-</code></pre>
+
+<div class="admonition failure">
+<p class="admonition-title">Error: unrecognized theme 'material'</p>
+<p>If you run into this error, the most common reason is that you installed
+MkDocs through some package manager (e.g. Homebrew or <code>apt-get</code>) and the
+Material theme through <code>pip</code>, so both packages end up in different
+locations. MkDocs only checks its install location for themes.</p>
+</div>
+<p>...</p>
+<p>khjbjbhjjh
+<img src="https://raw.githubusercontent.com/RakanAlanazi/Test/master/docs/img/1.2.png" width="300"></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod
+nulla. Curabitur feugiat, tortor non consequat finibus, justo purus auctor
+massa, nec semper lorem quam in massa.</p>
+</div>
+<div class="codehilite"><pre><span></span><span class="n">Get</span><span class="o">-</span><span class="n">Successor</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">root</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+<span class="mi">1</span><span class="p">:</span>  <span class="n">IF</span> <span class="p">(</span><span class="n">left</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">!=</span> <span class="n">nil</span><span class="p">)</span>         <span class="c1"># case 1: node has left child</span>
+<span class="mi">2</span><span class="p">:</span>            <span class="n">Return</span> <span class="n">left</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="mi">3</span><span class="p">:</span>            
+<span class="mi">4</span><span class="p">:</span>  <span class="n">ELSE</span>         <span class="c1"># case 2: No left or right child. Then we travel up.</span>
+<span class="mi">5</span><span class="p">:</span>            <span class="n">WHILE</span> <span class="p">(</span><span class="n">father</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">!=</span> <span class="n">nil</span> <span class="o">&amp;</span> <span class="n">right</span><span class="p">(</span><span class="n">father</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="o">==</span> <span class="n">x</span><span class="p">)</span> 
+<span class="mi">6</span><span class="p">:</span>                    <span class="n">x</span> <span class="err">←</span> <span class="n">father</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="mi">7</span><span class="p">:</span>                  <span class="n">father</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="err">←</span> <span class="n">father</span><span class="p">(</span><span class="n">parent</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="mi">8</span><span class="p">:</span>  <span class="n">IF</span> <span class="p">(</span><span class="n">father</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">=</span> <span class="n">nil</span><span class="p">)</span>        <span class="c1"># we reach the root. No result found</span>
+<span class="mi">9</span><span class="p">:</span>              <span class="n">Return</span> <span class="n">nil</span>
+<span class="mi">10</span><span class="p">:</span> 
+<span class="mi">11</span><span class="p">:</span> <span class="n">Return</span> <span class="n">right</span><span class="p">(</span><span class="n">father</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> 
+<span class="n">End</span>
+</pre></div>
                 
                   
                 
