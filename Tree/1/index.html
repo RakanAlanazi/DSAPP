@@ -372,8 +372,8 @@
 <p class="admonition-title">Question</p>
 <p>Let $T(V, E)$ be a weighted tree rooted at node $r ∈ V$. We define $M(r, v)$ to be the weight of the largest weighted edge on the path from $r$ to $v$. The following figure shows an example.
 <div style="text-align:center"><img src="https://raw.githubusercontent.com/RakanAlanazi/Test/master/docs/img/1.1.png" width="300"> </p>
-<p>$M(r, a) = 5, M(r, b) = 9, M(r, c) = 5, M(r, d) = 5, M(r, e) = 11, M(r, f) = -3, M(r, g) = -3</p>
-<p>M(r, h) = 9,M(r, i) = 8, M(r, j) = 10, M(r, k) = 8, M(r, l) = 7$.</div></p>
+<p>$M(r, a) = 5, M(r, b) = 9, M(r, c) = 5, M(r, d) = 5, M(r, e) = 11, M(r, f) = -3, M(r, g) = -3$
+$M(r, h) = 9,M(r, i) = 8, M(r, j) = 10, M(r, k) = 8, M(r, l) = 7$.</div></p>
 <p>Please design an O(n) algorithm to compute $M(r, v)$ for each and every node $v (≠ r)$ in $V$. We assume, for each node $u$, its father $π(u)$ is known $(π(r) = r)$, and its children are organized by a linked list. You can simply call “u’s next son” to get its next son or first son.  “u’s next son = $nil$” means you have looked all its sons or it is a leaf.</p>
 </div>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
