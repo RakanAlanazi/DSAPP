@@ -361,19 +361,19 @@
 10
 11
 12
-13</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>Get-Successor<span class="o">(</span>T, root, x<span class="o">)</span>
-<span class="m">1</span>:  IF <span class="o">(</span>left<span class="o">(</span>x<span class="o">)</span> !<span class="o">=</span> nil<span class="o">)</span>         <span class="c1"># case 1: node has left child</span>
-<span class="m">2</span>:            Return left<span class="o">(</span>x<span class="o">)</span>
-<span class="m">3</span>:            
-<span class="m">4</span>:  ELSE         <span class="c1"># case 2: No left or right child. Then we travel up.</span>
-<span class="m">5</span>:            WHILE <span class="o">(</span>father<span class="o">(</span>x<span class="o">)</span> !<span class="o">=</span> nil <span class="p">&amp;</span> right<span class="o">(</span>father<span class="o">(</span>x<span class="o">))</span> <span class="o">==</span> x<span class="o">)</span> 
-<span class="m">6</span>:                    x ← father<span class="o">(</span>x<span class="o">)</span>
-<span class="m">7</span>:                  father<span class="o">(</span>x<span class="o">)</span> ← father<span class="o">(</span>parent<span class="o">(</span>x<span class="o">))</span>
-<span class="m">8</span>:  IF <span class="o">(</span>father<span class="o">(</span>x<span class="o">)</span> <span class="o">=</span> nil<span class="o">)</span>        <span class="c1"># we reach the root. No result found</span>
-<span class="m">9</span>:              Return nil
-<span class="m">10</span>: 
-<span class="m">11</span>: Return right<span class="o">(</span>father<span class="o">(</span>x<span class="o">))</span> 
-End
+13</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">Get</span><span class="o">-</span><span class="n">Successor</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">root</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">left</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">!=</span> <span class="n">nil</span><span class="p">)</span>         <span class="c1"># case 1: node has left child</span>
+              <span class="k">return</span> <span class="n">left</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+    <span class="k">else</span>         <span class="c1"># case 2: No left or right child. Then we travel up.</span>
+              <span class="k">while</span> <span class="p">(</span><span class="n">father</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">!=</span> <span class="n">nil</span> <span class="o">&amp;</span> <span class="n">right</span><span class="p">(</span><span class="n">father</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="o">==</span> <span class="n">x</span><span class="p">)</span> 
+                      <span class="n">x</span> <span class="err">←</span> <span class="n">father</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+                    <span class="n">father</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="err">←</span> <span class="n">father</span><span class="p">(</span><span class="n">parent</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">father</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">=</span> <span class="n">nil</span><span class="p">)</span>        <span class="c1"># we reach the root. No result found</span>
+                <span class="k">return</span> <span class="n">nil</span>
+
+    <span class="k">return</span> <span class="n">right</span><span class="p">(</span><span class="n">father</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> 
+<span class="n">End</span>
 </pre></div>
 </td></tr></table>
                 
