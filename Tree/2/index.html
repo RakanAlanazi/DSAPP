@@ -344,29 +344,11 @@
                 
                   <h1>P2</h1>
                 
-                <div class="codehilite"><pre><span></span>!!! question
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod
-    nulla. Curabitur feugiat, tortor non consequat finibus, justo purus auctor
-    massa, nec semper lorem quam in massa.
-</pre></div>
-
-
-<div class="admonition failure">
-<p class="admonition-title">Error: unrecognized theme 'material'</p>
-<p>If you run into this error, the most common reason is that you installed
-MkDocs through some package manager (e.g. Homebrew or <code>apt-get</code>) and the
-Material theme through <code>pip</code>, so both packages end up in different
-locations. MkDocs only checks its install location for themes.</p>
+                <div class="admonition question">
+<p class="admonition-title">Question</p>
 </div>
-<p>...</p>
-<p>khjbjbhjjh
-<img src="https://raw.githubusercontent.com/RakanAlanazi/Test/master/docs/img/1.2.png" width="300"></p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod
-nulla. Curabitur feugiat, tortor non consequat finibus, justo purus auctor
-massa, nec semper lorem quam in massa.</p>
-</div>
+<p>A binary search tree is a full binary tree in which every internal node holds a number. Moreover, any number in a node $x$ is larger than any number in the left subtree of $x$ and smaller than any number in its right subtree. Any leaf contains no data and holds a special symbol nil. An example is given below. Any node x has 4 fields, $key(x), father(x), left(x),$ and $right(x)$, where $key(x)$ is the value of the number stored in x. The other three are pointers to its father node, left child and right child, respectively. The father of the root is nil. Obviously, if we do pre-order traversal, we will get a sorted sequence (not including leaves). A node y is called the successor of x if key(y) is the next number after key(x) in the sorted sequence. For example, in the following example, 13 is the successor of 10. Please write a program or a pseudo code that finds the successor for a given node x. </p>
+<p><img src="https://raw.githubusercontent.com/RakanAlanazi/Test/master/docs/img/1.2.png" width="300"></p>
 <div class="codehilite"><pre><span></span><span class="n">Get</span><span class="o">-</span><span class="n">Successor</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">root</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
 <span class="mi">1</span><span class="p">:</span>  <span class="n">IF</span> <span class="p">(</span><span class="n">left</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">!=</span> <span class="n">nil</span><span class="p">)</span>         <span class="c1"># case 1: node has left child</span>
 <span class="mi">2</span><span class="p">:</span>            <span class="n">Return</span> <span class="n">left</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
