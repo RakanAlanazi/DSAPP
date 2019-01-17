@@ -12,7 +12,7 @@
       <meta name="viewport" content="width=device-width,initial-scale=1">
       <meta http-equiv="x-ua-compatible" content="ie=edge">
       
-        <meta name="description" content="Solutions to dDD">
+        <meta name="description" content="Data Structures and Algorithms practice problems">
       
       
         <link rel="canonical" href="https://rakanalanazi.github.io/Algorthim/Tree/1/">
@@ -46,7 +46,7 @@
 
     
       
-        <title>Tree Traversal - FDR Solutions</title>
+        <title>Tree Traversal - Data Structures and Algorithms practice problems</title>
       
     
     
@@ -118,7 +118,7 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="https://rakanalanazi.github.io/Algorthim" title="FDR Solutions" class="md-header-nav__button md-logo">
+        <a href="https://rakanalanazi.github.io/Algorthim" title="Data Structures and Algorithms practice problems" class="md-header-nav__button md-logo">
           
             <i class="md-icon">import_contacts</i>
           
@@ -132,7 +132,7 @@
           
             
               <span class="md-header-nav__topic">
-                FDR Solutions
+                Data Structures and Algorithms practice problems
               </span>
               <span class="md-header-nav__topic">
                 Tree Traversal
@@ -214,12 +214,12 @@
                   <div class="md-sidebar__inner">
                     <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="https://rakanalanazi.github.io/Algorthim" title="FDR Solutions" class="md-nav__button md-logo">
+    <a href="https://rakanalanazi.github.io/Algorthim" title="Data Structures and Algorithms practice problems" class="md-nav__button md-logo">
       
         <i class="md-icon">import_contacts</i>
       
     </a>
-    FDR Solutions
+    Data Structures and Algorithms practice problems
   </label>
   
     <div class="md-nav__source">
@@ -252,20 +252,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../.." title="Preface" class="md-nav__link">
-      Preface
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../../color/" title="Color" class="md-nav__link">
-      Color
+    <a href="../.." title="Home" class="md-nav__link">
+      Home
     </a>
   </li>
 
@@ -279,13 +267,13 @@
 
   <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
     
-    <label class="md-nav__link" for="nav-3">
+    <label class="md-nav__link" for="nav-2">
       Tree Problems
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-3">
+      <label class="md-nav__title" for="nav-2">
         Tree Problems
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -327,6 +315,42 @@
   </li>
 
     
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Setting
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Setting
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../color/" title="Color" class="md-nav__link">
+      Color
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
   </ul>
 </nav>
                   </div>
@@ -348,8 +372,8 @@
 <p class="admonition-title">Question</p>
 <p>Let $T(V, E)$ be a weighted tree rooted at node $r ∈ V$. We define $M(r, v)$ to be the weight of the largest weighted edge on the path from $r$ to $v$. The following figure shows an example.
 <div style="text-align:center"><img src="https://raw.githubusercontent.com/RakanAlanazi/Test/master/docs/img/1.1.png" width="300" align="center"> </p>
-<p>$M(r, a) = 5, M(r, b) = 9, M(r, c) = 5, M(r, d) = 5, M(r, e) = 11, M(r, f) = -3, M(r, g) = -3, M(r, h) = 9,
-M(r, i) = 8, M(r, j) = 10, M(r, k) = 8, M(r, l) = 7$.</div></p>
+<p>$M(r, a) = 5, M(r, b) = 9, M(r, c) = 5, M(r, d) = 5, M(r, e) = 11, M(r, f) = -3, M(r, g) = -3,
+M(r, h) = 9,M(r, i) = 8, M(r, j) = 10, M(r, k) = 8, M(r, l) = 7$.</div></p>
 <p>Please design an O(n) algorithm to compute $M(r, v)$ for each and every node $v (≠ r)$ in $V$. We assume, for each node $u$, its father $π(u)$ is known $(π(r) = r)$, and its children are organized by a linked list. You can simply call “u’s next son” to get its next son or first son.  “u’s next son = $nil$” means you have looked all its sons or it is a leaf.</p>
 </div>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
@@ -397,7 +421,7 @@ M(r, i) = 8, M(r, j) = 10, M(r, k) = 8, M(r, l) = 7$.</div></p>
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../../color/" title="Color" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../.." title="Home" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -406,7 +430,7 @@ M(r, i) = 8, M(r, j) = 10, M(r, k) = 8, M(r, l) = 7$.</div></p>
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Color
+                Home
               </span>
             </div>
           </a>
