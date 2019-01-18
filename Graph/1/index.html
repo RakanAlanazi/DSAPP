@@ -420,17 +420,47 @@ Now your question: Design an efficient algorithm that finds the shortest weighte
  9
 10
 11
-12</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">M</span><span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="n">r</span><span class="p">)</span> <span class="o">=</span> <span class="o">-</span> <span class="err">∞</span> 
-<span class="n">w</span><span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="n">r</span><span class="p">)</span> <span class="o">=</span> <span class="o">-</span> <span class="err">∞</span>
-<span class="err">π</span><span class="p">(</span><span class="n">r</span><span class="p">)</span> <span class="o">=</span> <span class="n">r</span>
-<span class="n">v</span> <span class="o">=</span> <span class="n">r</span>           <span class="c1"># start traversal from the root r</span>
-<span class="n">Tree</span><span class="o">-</span><span class="n">Traversal</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="n">r</span><span class="p">,</span><span class="n">v</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">v</span> <span class="o">=</span> <span class="n">nil</span> <span class="p">:</span>
-        <span class="k">return</span> <span class="n">nil</span>
-    <span class="k">else</span> <span class="p">:</span>
-        <span class="n">M</span><span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="n">v</span><span class="p">)</span> <span class="err">←</span> <span class="n">MAX</span> <span class="p">(</span> <span class="n">w</span><span class="p">(</span><span class="err">π</span><span class="p">(</span><span class="n">v</span><span class="p">),</span><span class="n">v</span><span class="p">)</span> <span class="p">,</span><span class="n">M</span><span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="err">π</span><span class="p">(</span><span class="n">v</span><span class="p">)))</span>
-        <span class="n">For</span> <span class="n">each</span> <span class="n">v</span><span class="err">’</span><span class="n">s</span> <span class="nb">next</span> <span class="n">son</span><span class="p">:</span>
-            <span class="n">Tree</span><span class="o">-</span><span class="n">Traversal</span><span class="p">(</span> <span class="n">T</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">v</span><span class="o">.</span><span class="n">next</span> <span class="p">)</span>
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">Dijkstra</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span><span class="n">t</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">each</span> <span class="n">vertex</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">G</span><span class="p">:</span>  
+        <span class="n">dis</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">=</span> <span class="err">∞</span>
+        <span class="err">π</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="o">=</span> <span class="n">nil</span>
+        <span class="n">hop</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="hll">        <span class="n">c</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+</span>    <span class="n">dis</span><span class="p">[</span><span class="n">s</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">Q</span> <span class="o">=</span> <span class="err">∅</span>
+    <span class="n">While</span> <span class="n">Q</span> <span class="ow">not</span> <span class="n">empty</span><span class="p">:</span>
+        <span class="n">u</span> <span class="err">←</span> <span class="n">extractMin</span><span class="p">(</span><span class="n">Q</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">each</span> <span class="n">neighbor</span> <span class="n">v</span> <span class="n">of</span> <span class="n">u</span><span class="p">:</span>
+            <span class="n">hop</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">=</span> <span class="n">hop</span><span class="p">[</span><span class="n">u</span><span class="p">]</span><span class="o">+</span><span class="mi">1</span>
+<span class="hll">            <span class="k">if</span> <span class="n">hop</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">3</span>
+</span><span class="hll">                <span class="n">c</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">=</span> <span class="n">c</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">+</span> <span class="n">hop</span><span class="p">[</span><span class="n">v</span><span class="p">]</span>
+</span><span class="hll">            <span class="k">if</span> <span class="n">d</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">d</span><span class="p">[</span><span class="n">u</span><span class="p">]</span> <span class="o">+</span> <span class="n">w</span><span class="p">(</span><span class="n">v</span><span class="p">,</span><span class="n">u</span><span class="p">)</span> <span class="o">+</span> <span class="n">c</span><span class="p">[</span><span class="n">v</span><span class="p">]</span>
+</span><span class="hll">                <span class="n">d</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">=</span> <span class="n">d</span><span class="p">[</span><span class="n">u</span><span class="p">]</span> <span class="o">+</span> <span class="n">w</span><span class="p">(</span><span class="n">v</span><span class="p">,</span><span class="n">u</span><span class="p">)</span> <span class="o">+</span> <span class="n">c</span><span class="p">[</span><span class="n">v</span><span class="p">]</span>
+</span>                <span class="err">π</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="o">=</span> <span class="n">u</span>
+                <span class="n">enqueue</span><span class="p">(</span><span class="n">Q</span><span class="p">,</span><span class="n">v</span><span class="p">)</span>
+
+    <span class="n">Stack</span> <span class="n">S</span> <span class="o">=</span> <span class="err">∅</span>             <span class="c1"># Create a stack</span>
+    <span class="n">Push</span> <span class="p">(</span><span class="n">S</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span>
+    <span class="n">v</span> <span class="err">←</span> <span class="n">Top</span><span class="p">(</span><span class="n">S</span><span class="p">)</span>
+    <span class="k">while</span>  <span class="err">π</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="o">!=</span> <span class="n">nil</span> 
+        <span class="n">Push</span> <span class="p">(</span><span class="n">S</span><span class="p">,</span> <span class="err">π</span><span class="p">(</span><span class="n">v</span><span class="p">))</span>
+        <span class="n">v</span> <span class="o">=</span> <span class="err">π</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">S</span>            <span class="c1"># The path is stored in the stack S from top to bottom. </span>
 <span class="n">End</span>
 </pre></div>
 </td></tr></table>
