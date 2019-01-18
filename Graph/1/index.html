@@ -15,7 +15,7 @@
         <meta name="description" content="Data Structures and Algorithms practice problems">
       
       
-        <link rel="canonical" href="https://rakanalanazi.github.io/DSAPP/Graph/test12/">
+        <link rel="canonical" href="https://rakanalanazi.github.io/DSAPP/Graph/1/">
       
       
         <meta name="author" content="Rakan Alanazi">
@@ -46,7 +46,7 @@
 
     
       
-        <title>Test12 - Data Structures and Algorithms practice problems</title>
+        <title>Shortest Path With Limited Hops - Data Structures and Algorithms practice problems</title>
       
     
     
@@ -113,10 +113,6 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#11" tabindex="1" class="md-skip">
-        Skip to content
-      </a>
-    
     
       <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
@@ -139,7 +135,7 @@
                 Data Structures and Algorithms practice problems
               </span>
               <span class="md-header-nav__topic">
-                Test12
+                Shortest Path With Limited Hops
               </span>
             
           
@@ -314,16 +310,61 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
     
     <label class="md-nav__link" for="nav-3">
-      Setting
+      Graph Problems
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
       <label class="md-nav__title" for="nav-3">
+        Graph Problems
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+    <a href="./" title="Shortest Path With Limited Hops" class="md-nav__link md-nav__link--active">
+      Shortest Path With Limited Hops
+    </a>
+    
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Setting
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
         Setting
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -353,54 +394,21 @@
               </div>
             
             
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
-                <div class="md-sidebar__scrollwrap">
-                  <div class="md-sidebar__inner">
-                    
-<nav class="md-nav md-nav--secondary">
-  
-  
-  
-    <label class="md-nav__title" for="__toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#11" title="1.1" class="md-nav__link">
-    1.1
-  </a>
-  
-</li>
-      
-      
-      
-      
-      
-    </ul>
-  
-</nav>
-                  </div>
-                </div>
-              </div>
-            
           
           <div class="md-content">
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/rakanalanazi/DSAPP/edit/master/docs/Graph/test12.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/rakanalanazi/DSAPP/edit/master/docs/Graph/1.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                  <h1>Test12</h1>
+                  <h1>Shortest Path With Limited Hops</h1>
                 
-                <h2 id="11">1.1<a class="headerlink" href="#11" title="Permanent link">&para;</a></h2>
-<blockquote>
-<p>Let $T(V, E)$ be a weighted tree rooted at node $r ∈ V$. We define M(r, v) to be the weight of the largest weighted edge on the path from $r$ to $v$. The following figure shows an example.</p>
-</blockquote>
-<p><img src="https://raw.githubusercontent.com/RakanAlanazi/Test/master/docs/img/1.1.png" width="300"></p>
-<blockquote>
-<p>M(r, a) = 5, M(r, b) = 9, M(r, c) = 5, M(r, d) = 5, M(r, e) = 11, M(r, f) = -3, M(r, g) = -3, M(r, h) = 9, M(r, i) = 8, M(r, j) = 10, M(r, k) = 8, M(r, l) = 7.</p>
-<p>Please design an O(n) algorithm to compute M(r, v) for each and every node v (≠ r) in V. We assume, for each node u, its father π(u) is known (π(r) = r), and its children are organized by a linked list. You can simply call “u’s next son” to get its next son or first son.  “u’s next son = nil” means you have looked all its sons or it is a leaf.</p>
-</blockquote>
+                <div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>Let an undirected simple graph $G(V, E)$ be given with $n$ nodes and $m$ edges. The edges have an associated positive weight: w(x,y) &gt; 0 for the edge between node $x$ and $y$. This questions concerns itself with a variation of shortest path. For the purpose of question, if a particular path from $x$ to $y$ is $x → a → b → c → y$, then we refer to $a,b,$ and $c$ as lay-over nodes for that particular path.
+Now your question: Design an efficnt algorthim that finds the shortes weighted distance between two given nodes $s$ and $t$, with the additional requirement: there is a cost associated with lay-over nodes. You can visit up to two lay-over nodes for free,but every additional lay-over will incur a fee. Let $c(k)$ the cost associated with the $k$ node on the path.</p>
+</div>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -412,19 +420,17 @@
  9
 10
 11
-12
-13</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">v</span> <span class="o">=</span> <span class="n">r</span><span class="p">.</span><span class="n">next</span>
-<span class="n">M</span><span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="n">r</span><span class="p">)</span> <span class="err">←</span> <span class="o">-</span> <span class="err">∞</span> 
+12</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">M</span><span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="n">r</span><span class="p">)</span> <span class="o">=</span> <span class="o">-</span> <span class="err">∞</span> 
 <span class="n">w</span><span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="n">r</span><span class="p">)</span> <span class="o">=</span> <span class="o">-</span> <span class="err">∞</span>
 <span class="err">π</span><span class="p">(</span><span class="n">r</span><span class="p">)</span> <span class="o">=</span> <span class="n">r</span>
-
+<span class="n">v</span> <span class="o">=</span> <span class="n">r</span>           <span class="c1"># start traversal from the root r</span>
 <span class="n">Tree</span><span class="o">-</span><span class="n">Traversal</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="n">r</span><span class="p">,</span><span class="n">v</span><span class="p">)</span>
-<span class="mi">1</span><span class="o">:</span>  <span class="k">if</span> <span class="n">v</span> <span class="o">=</span> <span class="nl">nil</span> <span class="p">:</span>
-<span class="mi">2</span><span class="o">:</span>      <span class="k">return</span> <span class="n">nil</span>
-<span class="mi">3</span><span class="o">:</span>  <span class="k">else</span>
-<span class="mi">4</span><span class="o">:</span>      <span class="n">M</span><span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="n">v</span><span class="p">)</span> <span class="err">←</span> <span class="n">MAX</span> <span class="p">(</span> <span class="n">w</span><span class="p">(</span><span class="err">π</span><span class="p">(</span><span class="n">v</span><span class="p">),</span><span class="n">v</span><span class="p">)</span> <span class="p">,</span><span class="n">M</span><span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="err">π</span><span class="p">(</span><span class="n">v</span><span class="p">)))</span>
-<span class="mi">5</span><span class="o">:</span>                <span class="n">For</span> <span class="n">each</span> <span class="n">v</span><span class="err">’</span><span class="n">s</span> <span class="n">next</span> <span class="nl">son</span><span class="p">:</span>
-<span class="mi">6</span><span class="o">:</span>                  <span class="n">Tree</span><span class="o">-</span><span class="n">Traversal</span><span class="p">(</span> <span class="n">T</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">v</span><span class="p">.</span><span class="n">next</span> <span class="p">)</span>
+    <span class="k">if</span> <span class="n">v</span> <span class="o">=</span> <span class="n">nil</span> <span class="p">:</span>
+        <span class="k">return</span> <span class="n">nil</span>
+    <span class="k">else</span> <span class="p">:</span>
+        <span class="n">M</span><span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="n">v</span><span class="p">)</span> <span class="err">←</span> <span class="n">MAX</span> <span class="p">(</span> <span class="n">w</span><span class="p">(</span><span class="err">π</span><span class="p">(</span><span class="n">v</span><span class="p">),</span><span class="n">v</span><span class="p">)</span> <span class="p">,</span><span class="n">M</span><span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="err">π</span><span class="p">(</span><span class="n">v</span><span class="p">)))</span>
+        <span class="n">For</span> <span class="n">each</span> <span class="n">v</span><span class="err">’</span><span class="n">s</span> <span class="nb">next</span> <span class="n">son</span><span class="p">:</span>
+            <span class="n">Tree</span><span class="o">-</span><span class="n">Traversal</span><span class="p">(</span> <span class="n">T</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">v</span><span class="o">.</span><span class="n">next</span> <span class="p">)</span>
 <span class="n">End</span>
 </pre></div>
 </td></tr></table>
@@ -444,6 +450,41 @@
       
         
 <footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../../Tree/2/" title="Pre-order Successor of a Node" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Pre-order Successor of a Node
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../../color/" title="Color" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Color
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
