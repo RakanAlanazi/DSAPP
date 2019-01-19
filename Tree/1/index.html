@@ -423,11 +423,43 @@ $M(r, h) = 9,M(r, i) = 8, M(r, j) = 10, M(r, k) = 8, M(r, l) = 7$.</div></p>
  9
 10
 11
-12</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">M</span><span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="n">r</span><span class="p">)</span> <span class="o">=</span> <span class="o">-</span> <span class="err">∞</span> 
-<span class="n">w</span><span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="n">r</span><span class="p">)</span> <span class="o">=</span> <span class="o">-</span> <span class="err">∞</span>
+12
+13
+14</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">M</span><span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="n">r</span><span class="p">)</span> <span class="o">=</span> <span class="o">-</span> <span class="err">∞</span> 
 <span class="err">π</span><span class="p">(</span><span class="n">r</span><span class="p">)</span> <span class="o">=</span> <span class="n">r</span>
-<span class="n">v</span> <span class="o">=</span> <span class="n">r</span>           <span class="c1"># start traversal from the root r</span>
+
+<span class="k">for</span> <span class="n">each</span> <span class="n">r</span><span class="err">’</span><span class="n">s</span> <span class="nb">next</span> <span class="n">son</span><span class="p">:</span>
+    <span class="n">Tree</span><span class="o">-</span><span class="n">Traversal</span><span class="p">(</span> <span class="n">T</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">next</span> <span class="p">)</span>
+
 <span class="n">Tree</span><span class="o">-</span><span class="n">Traversal</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="n">r</span><span class="p">,</span><span class="n">v</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">v</span> <span class="o">=</span> <span class="n">nil</span> <span class="p">:</span>
+        <span class="k">return</span> <span class="n">nil</span>
+    <span class="k">else</span> <span class="p">:</span>
+        <span class="n">M</span><span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="n">v</span><span class="p">)</span> <span class="err">←</span> <span class="n">MAX</span> <span class="p">(</span> <span class="n">w</span><span class="p">(</span><span class="err">π</span><span class="p">(</span><span class="n">v</span><span class="p">),</span><span class="n">v</span><span class="p">)</span> <span class="p">,</span><span class="n">M</span><span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="err">π</span><span class="p">(</span><span class="n">v</span><span class="p">)))</span>
+        <span class="k">for</span> <span class="n">each</span> <span class="n">v</span><span class="err">’</span><span class="n">s</span> <span class="nb">next</span> <span class="n">son</span><span class="p">:</span>
+            <span class="n">Tree</span><span class="o">-</span><span class="n">Traversal</span><span class="p">(</span> <span class="n">T</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">v</span><span class="o">.</span><span class="n">next</span> <span class="p">)</span>
+<span class="n">End</span>
+</pre></div>
+</td></tr></table>
+
+<p>The Time Complexity is $O(n)$, since we visite all the node of tree once.
+alternative solution: We remove the root's loop and assume that $w(r,r) = - ∞$.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">M</span><span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="n">r</span><span class="p">)</span> <span class="o">=</span> <span class="o">-</span> <span class="err">∞</span> 
+<span class="hll"><span class="n">w</span><span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="n">r</span><span class="p">)</span> <span class="o">=</span> <span class="o">-</span> <span class="err">∞</span>
+</span><span class="err">π</span><span class="p">(</span><span class="n">r</span><span class="p">)</span> <span class="o">=</span> <span class="n">r</span>
+<span class="hll"><span class="n">v</span> <span class="o">=</span> <span class="n">r</span>           <span class="c1"># start traversal from the root r</span>
+</span><span class="n">Tree</span><span class="o">-</span><span class="n">Traversal</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="n">r</span><span class="p">,</span><span class="n">v</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">v</span> <span class="o">=</span> <span class="n">nil</span> <span class="p">:</span>
         <span class="k">return</span> <span class="n">nil</span>
     <span class="k">else</span> <span class="p">:</span>
