@@ -418,9 +418,9 @@
                 
                 <div class="admonition question">
 <p class="admonition-title">Question</p>
-<p>Suppose $T$ is a minimum spanning tree (MST) of graph $G(V, E)$. An edge $(u, v)$ Î $E$ is not in
-$T$, $(u, v) Ï T$. Now, the weight of $(u, v)$ reduces to $w(u, v)$ so that T may be no longer an MST.
-Please design an $O(n)$ algorithm that modifies T to obtain a new MST for graph G with this
+<p>Suppose $T$ is a minimum spanning tree (MST) of graph $G(V, E)$. An edge $(u, v) ∈ E$ is not in
+$T, (u, v) ∉ T$. Now, the weight of $(u, v)$ reduces to $w(u, v)$ so that T may be no longer an MST.
+Please design an $O(n)$ algorithm that modifies $T$ to obtain a new MST for graph $G$ with this
 change, where $n = |V|$. You need to prove its correctness</p>
 </div>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
@@ -439,9 +439,9 @@ change, where $n = |V|$. You need to prove its correctness</p>
 14</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">BFS</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">s</span><span class="p">):</span>
   <span class="n">e</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span> <span class="o">=</span> <span class="n">nil</span>
   <span class="n">largest</span> <span class="o">=</span> <span class="mi">0</span>
-  <span class="n">Q</span> <span class="o">=</span> <span class="err">∅</span>       <span class="c1"># create queue</span>
+  <span class="n">Q</span> <span class="o">=</span> <span class="err">∅</span>       <span class="c1"># create a queue</span>
   <span class="n">Enqueue</span><span class="p">(</span><span class="n">Q</span><span class="p">,</span><span class="n">s</span><span class="p">)</span>
-  <span class="n">While</span> <span class="n">Q</span> <span class="ow">not</span> <span class="n">empty</span><span class="p">:</span>
+  <span class="k">while</span> <span class="n">Q</span> <span class="ow">not</span> <span class="n">empty</span><span class="p">:</span>
       <span class="n">u</span> <span class="err">←</span> <span class="n">Dequeue</span><span class="p">(</span><span class="n">Q</span><span class="p">)</span>
       <span class="k">for</span> <span class="n">each</span> <span class="n">neighbor</span> <span class="n">v</span> <span class="n">of</span> <span class="n">u</span> <span class="ow">and</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">Q</span><span class="p">:</span>
             <span class="k">if</span> <span class="n">largest</span> <span class="o">&lt;</span> <span class="n">w</span><span class="p">(</span><span class="n">v</span><span class="p">,</span><span class="n">u</span><span class="p">)</span>     <span class="c1"># keep track of the largest edge</span>
