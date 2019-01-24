@@ -15,7 +15,7 @@
         <meta name="description" content="Data Structures and Algorithms practice problems">
       
       
-        <link rel="canonical" href="https://rakanalanazi.github.io/DSAPP/Graph/1/">
+        <link rel="canonical" href="https://rakanalanazi.github.io/DSAPP/Graph/3/">
       
       
         <meta name="author" content="Rakan Alanazi">
@@ -46,7 +46,7 @@
 
     
       
-        <title>Shortest Path with Limited Hops - Data Structures and Algorithms practice problems</title>
+        <title>Maximum Unweighted Independent Set in Tree - Data Structures and Algorithms practice problems</title>
       
     
     
@@ -135,7 +135,7 @@
                 Data Structures and Algorithms practice problems
               </span>
               <span class="md-header-nav__topic">
-                Shortest Path with Limited Hops
+                Maximum Unweighted Independent Set in Tree
               </span>
             
           
@@ -331,18 +331,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-    
-    <a href="./" title="Shortest Path with Limited Hops" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../1/" title="Shortest Path with Limited Hops" class="md-nav__link">
       Shortest Path with Limited Hops
     </a>
-    
   </li>
 
         
@@ -362,11 +355,18 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../3/" title="Maximum Unweighted Independent Set in Tree" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+    <a href="./" title="Maximum Unweighted Independent Set in Tree" class="md-nav__link md-nav__link--active">
       Maximum Unweighted Independent Set in Tree
     </a>
+    
   </li>
 
         
@@ -423,15 +423,16 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/rakanalanazi/DSAPP/edit/master/docs/Graph/1.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/rakanalanazi/DSAPP/edit/master/docs/Graph/3.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                  <h1>Shortest Path with Limited Hops</h1>
+                  <h1>Maximum Unweighted Independent Set in Tree</h1>
                 
                 <div class="admonition question">
 <p class="admonition-title">Question</p>
-<p>Let an undirected simple graph $G(V, E)$ be given with $n$ nodes and $m$ edges. The edges have an associated positive weight: $w(x,y) &gt; 0$ for the edge between node $x$ and $y$. This questions concerns itself with a variation of shortest path. For the purpose of question, if a particular path from $x$ to $y$ is $x → a → b → c → y$, then we refer to $a,b,$ and $c$ as lay-over nodes for that particular path.
-Now your question: Design an efficient algorithm that finds the shortest weighted distance between two given nodes $s$ and $t$, with the additional requirement: there is a cost associated with lay-over nodes. You can visit up to two lay-over nodes for free,but every additional lay-over will incur a fee. Let $c(k)$ the cost associated with the $k$ node on the path.</p>
+<p>An independent set of a graph $G = (V, E)$ is a subset $V’ ⊆ V$ of vertices such that each edge in $E$ is incident on at most one vertex in $V’$.
+The independent-set problem is to find a maximum-size independent set in $G$. This is a difficult NP-complete problem for general graph $G$.
+However, it is not difficult if $G$ is a tree.</p>
 </div>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
@@ -459,32 +460,46 @@ Now your question: Design an efficient algorithm that finds the shortest weighte
 24
 25
 26
-27</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">Dijkstra</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span><span class="n">t</span><span class="p">):</span>
-    <span class="k">for</span> <span class="n">each</span> <span class="n">vertex</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">G</span><span class="p">:</span>  
-        <span class="n">dis</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">=</span> <span class="err">∞</span>
-        <span class="err">π</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="o">=</span> <span class="n">nil</span>
-        <span class="n">hop</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="hll">        <span class="n">c</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
-</span>    <span class="n">dis</span><span class="p">[</span><span class="n">s</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="n">Q</span> <span class="o">=</span> <span class="err">∅</span>       <span class="c1"># create priority queue</span>
-    <span class="n">While</span> <span class="n">Q</span> <span class="ow">not</span> <span class="n">empty</span><span class="p">:</span>
-        <span class="n">u</span> <span class="err">←</span> <span class="n">extractMin</span><span class="p">(</span><span class="n">Q</span><span class="p">)</span>
-        <span class="k">for</span> <span class="n">each</span> <span class="n">neighbor</span> <span class="n">v</span> <span class="n">of</span> <span class="n">u</span><span class="p">:</span>
-            <span class="n">hop</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">=</span> <span class="n">hop</span><span class="p">[</span><span class="n">u</span><span class="p">]</span><span class="o">+</span><span class="mi">1</span>
-<span class="hll">            <span class="k">if</span> <span class="n">hop</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">3</span>     <span class="c1"># check if lay-over/hops more or equal to 3</span>
-</span><span class="hll">                <span class="n">c</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">=</span> <span class="n">c</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">+</span> <span class="n">hop</span><span class="p">[</span><span class="n">v</span><span class="p">]</span>
-</span><span class="hll">            <span class="k">if</span> <span class="n">d</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">d</span><span class="p">[</span><span class="n">u</span><span class="p">]</span> <span class="o">+</span> <span class="n">w</span><span class="p">(</span><span class="n">v</span><span class="p">,</span><span class="n">u</span><span class="p">)</span> <span class="o">+</span> <span class="n">c</span><span class="p">[</span><span class="n">v</span><span class="p">]</span>
-</span><span class="hll">                <span class="n">d</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">=</span> <span class="n">d</span><span class="p">[</span><span class="n">u</span><span class="p">]</span> <span class="o">+</span> <span class="n">w</span><span class="p">(</span><span class="n">v</span><span class="p">,</span><span class="n">u</span><span class="p">)</span> <span class="o">+</span> <span class="n">c</span><span class="p">[</span><span class="n">v</span><span class="p">]</span>
-</span>                <span class="err">π</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="o">=</span> <span class="n">u</span>
-                <span class="n">enqueue</span><span class="p">(</span><span class="n">Q</span><span class="p">,</span><span class="n">v</span><span class="p">)</span>
+27
+28
+29
+30
+31
+32
+33
+34</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">for</span> <span class="n">each</span> <span class="n">vertex</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">T</span><span class="p">:</span>  
+    <span class="n">children</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="err">π</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="o">=</span> <span class="n">nil</span>
+    <span class="n">isParent</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">=</span> <span class="bp">False</span>
+    <span class="n">visited</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">=</span> <span class="bp">False</span>
 
-    <span class="n">Stack</span> <span class="n">S</span> <span class="o">=</span> <span class="err">∅</span>             <span class="c1"># create a stack</span>
-    <span class="n">Push</span> <span class="p">(</span><span class="n">S</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span>
-    <span class="n">v</span> <span class="err">←</span> <span class="n">Top</span><span class="p">(</span><span class="n">S</span><span class="p">)</span>
-    <span class="k">while</span>  <span class="err">π</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="o">!=</span> <span class="n">nil</span> 
-        <span class="n">Push</span> <span class="p">(</span><span class="n">S</span><span class="p">,</span> <span class="err">π</span><span class="p">(</span><span class="n">v</span><span class="p">))</span>
-        <span class="n">v</span> <span class="o">=</span> <span class="err">π</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">S</span>      <span class="c1"># The path is stored in the stack S from top to bottom. </span>
+<span class="n">Q</span> <span class="o">=</span> <span class="err">∅</span>       <span class="c1"># create a queue</span>
+<span class="n">topological</span><span class="o">-</span><span class="n">Sort</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">u</span><span class="p">):</span>
+  <span class="n">visited</span><span class="p">[</span><span class="n">u</span><span class="p">]</span> <span class="o">=</span> <span class="bp">True</span>
+  <span class="k">for</span> <span class="n">each</span> <span class="n">neighbor</span> <span class="n">v</span> <span class="n">of</span> <span class="n">u</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">visited</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">=</span> <span class="bp">False</span><span class="p">:</span>
+                <span class="n">children</span><span class="p">[</span><span class="n">u</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="err">π</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="o">=</span> <span class="n">u</span>
+                <span class="n">topological</span><span class="o">-</span><span class="n">Sort</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
+  <span class="n">Enqueue</span><span class="p">(</span><span class="n">Q</span><span class="p">,</span><span class="n">u</span><span class="p">)</span>
+
+<span class="n">End</span>
+
+<span class="n">unweighted</span><span class="o">-</span><span class="n">MIS</span><span class="p">(</span><span class="n">Q</span><span class="p">):</span>
+  <span class="k">while</span> <span class="n">Q</span> <span class="ow">not</span> <span class="n">empty</span><span class="p">:</span>
+        <span class="n">v</span> <span class="err">←</span> <span class="n">Dequeue</span><span class="p">(</span><span class="n">Q</span><span class="p">)</span>
+        <span class="n">MIS</span> <span class="o">=</span> <span class="n">MIS</span> <span class="n">U</span> <span class="p">{</span><span class="n">v</span><span class="p">}</span>
+        <span class="n">children</span><span class="p">[</span><span class="err">π</span><span class="p">(</span><span class="n">v</span><span class="p">)]</span> <span class="o">-=</span> <span class="mi">1</span>   <span class="c1"># decrese No. of children of v&#39;s parent </span>
+        <span class="k">if</span> <span class="n">children</span><span class="p">[</span><span class="err">π</span><span class="p">(</span><span class="n">v</span><span class="p">)]</span> <span class="o">&gt;=</span> <span class="mi">1</span>
+              <span class="n">isParent</span><span class="p">[</span><span class="err">π</span><span class="p">(</span><span class="n">v</span><span class="p">)]</span> <span class="o">=</span> <span class="bp">True</span>
+        <span class="k">else</span> 
+               <span class="n">u</span> <span class="err">←</span> <span class="n">Dequeue</span><span class="p">(</span><span class="n">Q</span><span class="p">)</span>
+               <span class="k">if</span> <span class="err">π</span><span class="p">(</span><span class="n">u</span><span class="p">)</span> <span class="o">!=</span> <span class="n">nil</span>    <span class="c1"># because root don&#39;t have parent to decrese No. of their children</span>
+                    <span class="n">children</span><span class="p">[</span><span class="err">π</span><span class="p">(</span><span class="n">u</span><span class="p">)]</span> <span class="o">-=</span> <span class="mi">1</span>
+                    <span class="k">if</span> <span class="n">isParent</span><span class="p">[</span><span class="err">π</span><span class="p">(</span><span class="n">u</span><span class="p">)]</span> <span class="o">=</span> <span class="bp">True</span> <span class="ow">and</span> <span class="n">children</span><span class="p">[</span><span class="err">π</span><span class="p">(</span><span class="n">u</span><span class="p">)]</span> <span class="o">=</span> <span class="mi">0</span>
+                            <span class="n">u</span> <span class="err">←</span> <span class="n">Dequeue</span><span class="p">(</span><span class="n">Q</span><span class="p">)</span>
+                            <span class="n">children</span><span class="p">[</span><span class="err">π</span><span class="p">(</span><span class="n">u</span><span class="p">)]</span> <span class="o">-=</span> <span class="mi">1</span>
+  <span class="k">return</span> <span class="n">MIS</span>                            
 <span class="n">End</span>
 </pre></div>
 </td></tr></table>
@@ -508,7 +523,7 @@ Now your question: Design an efficient algorithm that finds the shortest weighte
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../../Tree/2/" title="Pre-order Successor of a Node" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../2/" title="Minimum Spanning Tree (MST)" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -517,19 +532,19 @@ Now your question: Design an efficient algorithm that finds the shortest weighte
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Pre-order Successor of a Node
+                Minimum Spanning Tree (MST)
               </span>
             </div>
           </a>
         
         
-          <a href="../2/" title="Minimum Spanning Tree (MST)" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../../color/" title="Color" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Minimum Spanning Tree (MST)
+                Color
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
