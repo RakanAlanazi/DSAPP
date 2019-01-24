@@ -432,7 +432,7 @@
 <p class="admonition-title">Question</p>
 <p>An independent set of a graph $G = (V, E)$ is a subset $V’ ⊆ V$ of vertices such that each edge in $E$ is incident on at most one vertex in $V’$.
 The independent-set problem is to find a maximum-size independent set in $G$. This is a difficult NP-complete problem for general graph $G$.
-However, it is not difficult if $G$ is a tree.</p>
+However, it is not difficult if $G$ is a tree. Let $T = (V, E)$ be a tree, where $V$ is the vertex set and E is the edge set. Please design an $O(n)$ algorithm to find a maximum-size independent set (MIS) in $T$, where $n = |V|$. We assume $T$ is represented by an adjacency list. You need to show the pseudo code for your algorithm. </p>
 </div>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
@@ -467,7 +467,8 @@ However, it is not difficult if $G$ is a tree.</p>
 31
 32
 33
-34</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">for</span> <span class="n">each</span> <span class="n">vertex</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">T</span><span class="p">:</span>  
+34
+35</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">for</span> <span class="n">each</span> <span class="n">vertex</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">T</span><span class="p">:</span>  
     <span class="n">children</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="err">π</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="o">=</span> <span class="n">nil</span>
     <span class="n">isParent</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">=</span> <span class="bp">False</span>
@@ -482,20 +483,21 @@ However, it is not difficult if $G$ is a tree.</p>
                 <span class="err">π</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="o">=</span> <span class="n">u</span>
                 <span class="n">topological</span><span class="o">-</span><span class="n">Sort</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
   <span class="n">Enqueue</span><span class="p">(</span><span class="n">Q</span><span class="p">,</span><span class="n">u</span><span class="p">)</span>
-
 <span class="n">End</span>
 
 <span class="n">unweighted</span><span class="o">-</span><span class="n">MIS</span><span class="p">(</span><span class="n">Q</span><span class="p">):</span>
   <span class="k">while</span> <span class="n">Q</span> <span class="ow">not</span> <span class="n">empty</span><span class="p">:</span>
         <span class="n">v</span> <span class="err">←</span> <span class="n">Dequeue</span><span class="p">(</span><span class="n">Q</span><span class="p">)</span>
         <span class="n">MIS</span> <span class="o">=</span> <span class="n">MIS</span> <span class="n">U</span> <span class="p">{</span><span class="n">v</span><span class="p">}</span>
+        <span class="k">if</span> <span class="err">π</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="o">=</span> <span class="n">nil</span>   <span class="c1"># we reach the root</span>
+            <span class="k">return</span> <span class="n">MIS</span> 
         <span class="n">children</span><span class="p">[</span><span class="err">π</span><span class="p">(</span><span class="n">v</span><span class="p">)]</span> <span class="o">-=</span> <span class="mi">1</span>   <span class="c1"># decrese No. of children of v&#39;s parent </span>
         <span class="k">if</span> <span class="n">children</span><span class="p">[</span><span class="err">π</span><span class="p">(</span><span class="n">v</span><span class="p">)]</span> <span class="o">&gt;=</span> <span class="mi">1</span>
               <span class="n">isParent</span><span class="p">[</span><span class="err">π</span><span class="p">(</span><span class="n">v</span><span class="p">)]</span> <span class="o">=</span> <span class="bp">True</span>
         <span class="k">else</span> 
                <span class="n">u</span> <span class="err">←</span> <span class="n">Dequeue</span><span class="p">(</span><span class="n">Q</span><span class="p">)</span>
-               <span class="k">if</span> <span class="err">π</span><span class="p">(</span><span class="n">u</span><span class="p">)</span> <span class="o">!=</span> <span class="n">nil</span>    <span class="c1"># because root don&#39;t have parent to decrese No. of their children</span>
-                    <span class="n">children</span><span class="p">[</span><span class="err">π</span><span class="p">(</span><span class="n">u</span><span class="p">)]</span> <span class="o">-=</span> <span class="mi">1</span>
+               <span class="k">if</span> <span class="err">π</span><span class="p">(</span><span class="n">u</span><span class="p">)</span> <span class="o">!=</span> <span class="n">nil</span>               <span class="c1"># because root don&#39;t have parent</span>
+                    <span class="n">children</span><span class="p">[</span><span class="err">π</span><span class="p">(</span><span class="n">u</span><span class="p">)]</span> <span class="o">-=</span> <span class="mi">1</span>     <span class="c1"># to decrese No. of their children</span>
                     <span class="k">if</span> <span class="n">isParent</span><span class="p">[</span><span class="err">π</span><span class="p">(</span><span class="n">u</span><span class="p">)]</span> <span class="o">=</span> <span class="bp">True</span> <span class="ow">and</span> <span class="n">children</span><span class="p">[</span><span class="err">π</span><span class="p">(</span><span class="n">u</span><span class="p">)]</span> <span class="o">=</span> <span class="mi">0</span>
                             <span class="n">u</span> <span class="err">←</span> <span class="n">Dequeue</span><span class="p">(</span><span class="n">Q</span><span class="p">)</span>
                             <span class="n">children</span><span class="p">[</span><span class="err">π</span><span class="p">(</span><span class="n">u</span><span class="p">)]</span> <span class="o">-=</span> <span class="mi">1</span>
