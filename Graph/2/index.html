@@ -46,7 +46,7 @@
 
     
       
-        <title>Minimum spanning tree (MST) - Data Structures and Algorithms practice problems</title>
+        <title>Minimum Spanning Tree (MST) - Data Structures and Algorithms practice problems</title>
       
     
     
@@ -135,7 +135,7 @@
                 Data Structures and Algorithms practice problems
               </span>
               <span class="md-header-nav__topic">
-                Minimum spanning tree (MST)
+                Minimum Spanning Tree (MST)
               </span>
             
           
@@ -333,8 +333,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../1/" title="Shortest Path With Limited Hops" class="md-nav__link">
-      Shortest Path With Limited Hops
+    <a href="../1/" title="Shortest Path with Limited Hops" class="md-nav__link">
+      Shortest Path with Limited Hops
     </a>
   </li>
 
@@ -351,8 +351,8 @@
     <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
     
     
-    <a href="./" title="Minimum spanning tree (MST)" class="md-nav__link md-nav__link--active">
-      Minimum spanning tree (MST)
+    <a href="./" title="Minimum Spanning Tree (MST)" class="md-nav__link md-nav__link--active">
+      Minimum Spanning Tree (MST)
     </a>
     
   </li>
@@ -414,7 +414,7 @@
                   <a href="https://github.com/rakanalanazi/DSAPP/edit/master/docs/Graph/2.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                  <h1>Minimum spanning tree (MST)</h1>
+                  <h1>Minimum Spanning Tree (MST)</h1>
                 
                 <div class="admonition question">
 <p class="admonition-title">Question</p>
@@ -423,6 +423,7 @@ $T, (u, v) ∉ T$. Now, the weight of $(u, v)$ reduces to $w(u, v)$ so that T ma
 Please design an $O(n)$ algorithm that modifies $T$ to obtain a new MST for graph $G$ with this
 change, where $n = |V|$. You need to prove its correctness</p>
 </div>
+<p>The idea is to add the reduced edge $(u,v)$ to the Tree $T$. Now, we have a cycle,and $T$ are no longer an MST. We need to modify $T$ to obtain a new MST by applying BFS on $T$ where node $u$ is the source node. While we traverse the Tree $T$ we keep track of largest edge and remove it from $T$.</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -436,7 +437,9 @@ change, where $n = |V|$. You need to prove its correctness</p>
 11
 12
 13
-14</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">BFS</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">s</span><span class="p">):</span>
+14
+15</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">T</span> <span class="o">=</span> <span class="n">T</span> <span class="err">∪</span> <span class="p">{</span><span class="n">e</span><span class="p">(</span><span class="n">u</span><span class="p">,</span><span class="n">v</span><span class="p">)}</span>    <span class="c1"># add the reduced edge to the Tree</span>
+<span class="n">BFS</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">s</span><span class="p">):</span>
   <span class="n">e</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span> <span class="o">=</span> <span class="n">nil</span>
   <span class="n">largest</span> <span class="o">=</span> <span class="mi">0</span>
   <span class="n">Q</span> <span class="o">=</span> <span class="err">∅</span>       <span class="c1"># create a queue</span>
@@ -472,7 +475,7 @@ change, where $n = |V|$. You need to prove its correctness</p>
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../1/" title="Shortest Path With Limited Hops" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../1/" title="Shortest Path with Limited Hops" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -481,7 +484,7 @@ change, where $n = |V|$. You need to prove its correctness</p>
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Shortest Path With Limited Hops
+                Shortest Path with Limited Hops
               </span>
             </div>
           </a>
