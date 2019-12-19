@@ -46,7 +46,7 @@
 
     
       
-        <title>Widest path - Data Structures and Algorithms practice problems</title>
+        <title>Widest Path - Data Structures and Algorithms practice problems</title>
       
     
     
@@ -146,7 +146,7 @@
             </span>
             <span class="md-header-nav__topic">
               
-                Widest path
+                Widest Path
               
             </span>
           
@@ -380,8 +380,8 @@
     <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
     
     
-    <a href="./" title="Widest path" class="md-nav__link md-nav__link--active">
-      Widest path
+    <a href="./" title="Widest Path" class="md-nav__link md-nav__link--active">
+      Widest Path
     </a>
     
   </li>
@@ -443,14 +443,15 @@
                   <a href="https://github.com/rakanalanazi/DSAPP/edit/master/docs/Graph/4.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                  <h1>Widest path</h1>
+                  <h1>Widest Path</h1>
                 
                 <div class="admonition question">
 <p class="admonition-title">Question</p>
-<p>Given a weighted (undirected) graph $G(V, E)$, the weight of an edge is called the width of the edge. The width of a path is defined to be the smallest weight among all edges on the path.
-(An edge with the smallest weight is called the bottle neck edge.) For example, in the following graph, the path $<a, b, e, g>$ has width 7. 
-<div style="text-align:center"><img src="https://raw.githubusercontent.com/RakanAlanazi/Test/master/docs/img/2.4.png" width="300"> </p>
-<p>A path $P(u, v)$ is called the widest if the width of the path is the largest among all paths from $u$ to $v$. 
+<p>Given a weighted (undirected) graph $G(V, E)$, the weight of an edge is called the width of the edge. The width of a path is defined
+to be the smallest weight among all edges on the path.
+(An edge with the smallest weight is called the bottle neck edge.) For example, in the following graph, the path &lt;$a, b, e, g$&gt; has width 7. 
+<div style="text-align:center"><img src="https://raw.githubusercontent.com/RakanAlanazi/Test/master/docs/img/2.4.png" width="300"> 
+A path $P(u, v)$ is called the widest if the width of the path is the largest among all paths from $u$ to $v$. 
 For example, in the above figure, the widest path between vertex $a$ and vertex $g$ is &lt;$a, b, c, d, f, g$&gt; whose width is 8. 
 Please modify Dijkstra’s algorithm to compute the widest path from a given vertex $s ∈ V$ to every other vertex.</p>
 </div>
@@ -488,7 +489,7 @@ Please modify Dijkstra’s algorithm to compute the widest path from a given ver
         <span class="k">if</span> <span class="n">v</span> <span class="o">!=</span> <span class="n">s</span>
             <span class="n">width</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="p">:</span><span class="o">=</span> <span class="o">-</span><span class="err">∞</span>  <span class="p">;</span>
         <span class="err">π</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="o">=</span> <span class="n">nil</span>
-        <span class="n">Q</span><span class="o">.</span><span class="n">enqueue</span><span class="p">(</span><span class="n">width</span><span class="p">[</span><span class="n">v</span><span class="p">])</span>      <span class="c1"># set all vertices in Q</span>
+        <span class="n">Q</span><span class="o">.</span><span class="n">enqueue</span><span class="p">(</span><span class="n">width</span><span class="p">[</span><span class="n">v</span><span class="p">])</span>    <span class="c1"># set all vertices in Q</span>
 
     <span class="n">While</span> <span class="n">Q</span> <span class="ow">not</span> <span class="n">empty</span><span class="p">:</span>
         <span class="n">u</span> <span class="err">←</span> <span class="n">extractMax</span><span class="p">(</span><span class="n">Q</span><span class="p">)</span>
@@ -497,7 +498,7 @@ Please modify Dijkstra’s algorithm to compute the widest path from a given ver
             <span class="k">if</span> <span class="n">alt</span> <span class="o">&gt;</span> <span class="n">width</span><span class="p">[</span><span class="n">v</span><span class="p">]:</span>                                
                <span class="n">width</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">=</span> <span class="n">alt</span> <span class="p">;</span>
                <span class="err">π</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="p">:</span><span class="o">=</span> <span class="n">u</span> <span class="p">;</span>
-               <span class="n">Q</span><span class="o">.</span><span class="n">increase</span><span class="o">-</span><span class="n">key</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">alt</span><span class="p">)</span>   <span class="c1"># updating a key within a max-heap</span>
+               <span class="n">Q</span><span class="o">.</span><span class="n">increase</span><span class="o">-</span><span class="n">key</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">alt</span><span class="p">)</span>  <span class="c1"># updating a key within a max-heap</span>
 
     <span class="c1"># retrieve the path from s to t</span>
     <span class="n">Stack</span> <span class="n">S</span> <span class="o">=</span> <span class="err">∅</span>             <span class="c1"># create a stack</span>
