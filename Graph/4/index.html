@@ -453,7 +453,7 @@ to be the smallest weight among all edges on the path.
 <p><div style="text-align:center"><img src="https://raw.githubusercontent.com/RakanAlanazi/Test/master/docs/img/2.4.png" width="300"> </p>
 <p>A path $P(u, v)$ is called the widest if the width of the path is the largest among all paths from $u$ to $v$. 
 For example, in the above figure, the widest path between vertex $a$ and vertex $g$ is &lt;$a, b, c, d, f, g$&gt; whose width is 8.
-Please modify Dijkstra’s algorithm to compute the widest path from a given vertex $s ∈ V$ to every other vertex.</p>
+Please modify Dijkstra’s algorithm to compute the widest path from a given vertex $s$ ∈ $V$ to every other vertex.</p>
 </div>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
@@ -486,8 +486,8 @@ Please modify Dijkstra’s algorithm to compute the widest path from a given ver
     <span class="n">Q</span> <span class="o">=</span> <span class="err">∅</span>       <span class="c1"># create priority queue</span>
     <span class="n">width</span><span class="p">[</span><span class="n">s</span><span class="p">]</span> <span class="o">=</span> <span class="err">∞</span>
     <span class="k">for</span> <span class="n">each</span> <span class="n">vertex</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">G</span><span class="p">:</span> 
-        <span class="k">if</span> <span class="n">v</span> <span class="o">!=</span> <span class="n">s</span>
-            <span class="n">width</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="p">:</span><span class="o">=</span> <span class="o">-</span><span class="err">∞</span>  <span class="p">;</span>
+        <span class="k">if</span> <span class="n">v</span> <span class="o">!=</span> <span class="n">s</span> <span class="p">:</span>
+            <span class="n">width</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="err">∞</span>  
         <span class="err">π</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="o">=</span> <span class="n">nil</span>
         <span class="n">Q</span><span class="o">.</span><span class="n">enqueue</span><span class="p">(</span><span class="n">width</span><span class="p">[</span><span class="n">v</span><span class="p">])</span>    <span class="c1"># set all vertices in Q</span>
 
@@ -496,8 +496,8 @@ Please modify Dijkstra’s algorithm to compute the widest path from a given ver
         <span class="k">for</span> <span class="n">each</span> <span class="n">neighbor</span> <span class="n">v</span> <span class="n">of</span> <span class="n">u</span><span class="p">:</span>
             <span class="n">alt</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">width</span><span class="p">[</span><span class="n">v</span><span class="p">],</span> <span class="nb">min</span><span class="p">(</span><span class="n">width</span><span class="p">[</span><span class="n">u</span><span class="p">],</span> <span class="n">w</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">)))</span>
             <span class="k">if</span> <span class="n">alt</span> <span class="o">&gt;</span> <span class="n">width</span><span class="p">[</span><span class="n">v</span><span class="p">]:</span>                                
-               <span class="n">width</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">=</span> <span class="n">alt</span> <span class="p">;</span>
-               <span class="err">π</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="p">:</span><span class="o">=</span> <span class="n">u</span> <span class="p">;</span>
+               <span class="n">width</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">=</span> <span class="n">alt</span> 
+               <span class="err">π</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="o">=</span> <span class="n">u</span> 
                <span class="n">Q</span><span class="o">.</span><span class="n">increase</span><span class="o">-</span><span class="n">key</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">alt</span><span class="p">)</span>  <span class="c1"># updating a key within a max-heap</span>
 
     <span class="c1"># retrieve the path from s to t</span>
