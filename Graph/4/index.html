@@ -451,7 +451,7 @@
 (An edge with the smallest weight is called the bottle neck edge.) For example, in the following graph, the path $<a, b, e, g>$ has width 7. 
 <div style="text-align:center"><img src="https://raw.githubusercontent.com/RakanAlanazi/Test/master/docs/img/2.4.png" width="300"> </p>
 <p>A path $P(u, v)$ is called the widest if the width of the path is the largest among all paths from $u$ to $v$. 
-For example, in the above figure, the widest path between vertex a and vertex $g$ is $<a, b, c, d, f, g>$ whose width is 8. 
+For example, in the above figure, the widest path between vertex $a$ and vertex $g$ is &lt;$a, b, c, d, f, g$&gt; whose width is 8. 
 Please modify Dijkstra’s algorithm to compute the widest path from a given vertex $s ∈ V$ to every other vertex.</p>
 </div>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
@@ -480,7 +480,8 @@ Please modify Dijkstra’s algorithm to compute the widest path from a given ver
 24
 25
 26
-27</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">Dijkstra_Widest_path</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span><span class="n">t</span><span class="p">):</span>
+27
+28</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">Dijkstra_Widest_path</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span><span class="n">t</span><span class="p">):</span>
     <span class="n">Q</span> <span class="o">=</span> <span class="err">∅</span>       <span class="c1"># create priority queue</span>
     <span class="n">width</span><span class="p">[</span><span class="n">s</span><span class="p">]</span> <span class="o">=</span> <span class="err">∞</span>
     <span class="k">for</span> <span class="n">each</span> <span class="n">vertex</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">G</span><span class="p">:</span> 
@@ -505,7 +506,8 @@ Please modify Dijkstra’s algorithm to compute the widest path from a given ver
     <span class="k">while</span>  <span class="err">π</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="o">!=</span> <span class="n">nil</span> 
         <span class="n">Push</span> <span class="p">(</span><span class="n">S</span><span class="p">,</span> <span class="err">π</span><span class="p">(</span><span class="n">v</span><span class="p">))</span>
         <span class="n">v</span> <span class="o">=</span> <span class="err">π</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">S</span>      <span class="c1"># The path is stored in the stack S from top to bottom. </span>
+    <span class="k">return</span> <span class="n">S</span>      <span class="c1"># the path is stored in the stack S</span>
+                  <span class="c1"># from top to bottom. </span>
 <span class="n">End</span>
 </pre></div>
 </td></tr></table>
