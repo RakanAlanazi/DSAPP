@@ -455,15 +455,6 @@ to be the smallest weight among all edges on the path.
 For example, in the above figure, the widest path between vertex $a$ and vertex $g$ is &lt;$a, b, c, d, f, g$&gt; whose width is 8.
 Please modify Dijkstra’s algorithm to compute the widest path from a given vertex $s ∈ V$ to every other vertex.</p>
 </div>
-<p>'''python
-Dijkstra_Widest_path(G, s,t):
-    Q = ∅       # create priority queue
-    width[s] = ∞
-    for each vertex v in G: 
-        if v != s
-            width[v] := -∞  ;
-        π(v) = nil
-        Q.enqueue(width[v])    # set all vertices in Q</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -481,29 +472,46 @@ Dijkstra_Widest_path(G, s,t):
 15
 16
 17
-18</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>While Q not empty:
-    u ← extractMax(Q)
-    for each neighbor v of u:
-        alt = max(width[v], min(width[u], w(u, v)))
-        if alt &amp;gt; width[v]:                                
-           width[v] = alt ;
-           π(v) := u ;
-           Q.increase-key(v, alt)  # updating a key within a max-heap
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">Dijkstra_Widest_path</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span><span class="n">t</span><span class="p">):</span>
+    <span class="n">Q</span> <span class="o">=</span> <span class="err">∅</span>       <span class="c1"># create priority queue</span>
+    <span class="n">width</span><span class="p">[</span><span class="n">s</span><span class="p">]</span> <span class="o">=</span> <span class="err">∞</span>
+    <span class="k">for</span> <span class="n">each</span> <span class="n">vertex</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">G</span><span class="p">:</span> 
+        <span class="k">if</span> <span class="n">v</span> <span class="o">!=</span> <span class="n">s</span>
+            <span class="n">width</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="p">:</span><span class="o">=</span> <span class="o">-</span><span class="err">∞</span>  <span class="p">;</span>
+        <span class="err">π</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="o">=</span> <span class="n">nil</span>
+        <span class="n">Q</span><span class="o">.</span><span class="n">enqueue</span><span class="p">(</span><span class="n">width</span><span class="p">[</span><span class="n">v</span><span class="p">])</span>    <span class="c1"># set all vertices in Q</span>
 
-# retrieve the path from s to t
-Stack S = ∅             # create a stack
-Push (S, t)
-v ← Top(S)
-while  π(v) != nil 
-    Push (S, π(v))
-    v = π(v)
-return S      # the path is stored in the stack S
-              # from top to bottom.
+    <span class="n">While</span> <span class="n">Q</span> <span class="ow">not</span> <span class="n">empty</span><span class="p">:</span>
+        <span class="n">u</span> <span class="err">←</span> <span class="n">extractMax</span><span class="p">(</span><span class="n">Q</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">each</span> <span class="n">neighbor</span> <span class="n">v</span> <span class="n">of</span> <span class="n">u</span><span class="p">:</span>
+            <span class="n">alt</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">width</span><span class="p">[</span><span class="n">v</span><span class="p">],</span> <span class="nb">min</span><span class="p">(</span><span class="n">width</span><span class="p">[</span><span class="n">u</span><span class="p">],</span> <span class="n">w</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">)))</span>
+            <span class="k">if</span> <span class="n">alt</span> <span class="o">&gt;</span> <span class="n">width</span><span class="p">[</span><span class="n">v</span><span class="p">]:</span>                                
+               <span class="n">width</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">=</span> <span class="n">alt</span> <span class="p">;</span>
+               <span class="err">π</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="p">:</span><span class="o">=</span> <span class="n">u</span> <span class="p">;</span>
+               <span class="n">Q</span><span class="o">.</span><span class="n">increase</span><span class="o">-</span><span class="n">key</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">alt</span><span class="p">)</span>  <span class="c1"># updating a key within a max-heap</span>
+
+    <span class="c1"># retrieve the path from s to t</span>
+    <span class="n">Stack</span> <span class="n">S</span> <span class="o">=</span> <span class="err">∅</span>             <span class="c1"># create a stack</span>
+    <span class="n">Push</span> <span class="p">(</span><span class="n">S</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span>
+    <span class="n">v</span> <span class="err">←</span> <span class="n">Top</span><span class="p">(</span><span class="n">S</span><span class="p">)</span>
+    <span class="k">while</span>  <span class="err">π</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="o">!=</span> <span class="n">nil</span> 
+        <span class="n">Push</span> <span class="p">(</span><span class="n">S</span><span class="p">,</span> <span class="err">π</span><span class="p">(</span><span class="n">v</span><span class="p">))</span>
+        <span class="n">v</span> <span class="o">=</span> <span class="err">π</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">S</span>      <span class="c1"># the path is stored in the stack S</span>
+                  <span class="c1"># from top to bottom. </span>
+<span class="n">End</span>
 </pre></div>
 </td></tr></table>
-
-<p>End
-'''</p>
                 
                   
                 
