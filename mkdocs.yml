@@ -1,0 +1,61 @@
+# Project information
+site_name: 'Data Structures and Algorithms practice problems'
+site_description: 'Data Structures and Algorithms practice problems'
+site_author: 'Rakan Alanazi'
+site_url: 'https://rakanalanazi.github.io/DSAPP'
+
+# Repository
+repo_name: 'rakanalanazi/DSAPP'
+repo_url: 'https://github.com/rakanalanazi/DSAPP'
+
+# Copyright
+copyright: 'Built by <a href="http://github.com/rakanalanazi">Rakan Alanazi</a> &copy; 2019'
+
+# Configuration
+theme:
+  name: 'material'
+  language: 'en'
+  custom_dir: 'custom/'
+  favicon: 'assets/favicon.png'
+  palette:
+    primary: 'Blue'
+  font:
+    text: 'Roboto'
+    code: 'Roboto Mono'
+  logo:
+    icon: 'import_contacts'
+
+markdown_extensions:
+  - admonition
+  - codehilite:
+      linenums: true
+      guess_lang: false
+  - toc:
+      permalink: true
+      
+extra_css:
+  - 'css/katex.css'
+  - 'https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css'
+
+extra_javascript:
+  - 'js/katex.js'
+  - 'https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js'
+  - 'https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js'
+
+# Google Analytics
+google_analytics:
+  - 'UA-117404761-1'
+  - 'auto'
+
+nav:
+  - Home: index.md
+  - Tree Problems: 
+    - Tree Traversal: Tree/1.md
+    - Pre-order Successor of a Node: Tree/2.md
+  - Graph Problems: 
+    - Shortest Path with Limited Hops: Graph/1.md
+    - Minimum Spanning Tree (MST): Graph/2.md
+    - Maximum Unweighted Independent Set in Tree: Graph/3.md
+    - Widest Path: Graph/4.md
+  - Setting:
+    - Color: color.md
